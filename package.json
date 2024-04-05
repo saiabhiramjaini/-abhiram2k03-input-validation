@@ -1,6 +1,6 @@
 {
   "name": "@abhiram2k03/input-validation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "repository": {
@@ -9,7 +9,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["input", "validation", "zod", "forms", "signin", "login"],
+  "keywords": [
+    "input",
+    "validation",
+    "zod",
+    "forms",
+    "signin",
+    "login"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
