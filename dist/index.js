@@ -16,7 +16,6 @@ exports.forgotPasswordSchema = zod_1.z.object({
     email: zod_1.z.string().email(),
 });
 exports.resetPasswordSchema = zod_1.z.object({
-    currPassword: zod_1.z.string().min(8),
     password: zod_1.z.string().min(8),
     cPassword: zod_1.z.string().min(8)
 });

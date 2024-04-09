@@ -36,16 +36,13 @@ export declare const forgotPasswordSchema: z.ZodObject<{
 }>;
 export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 export declare const resetPasswordSchema: z.ZodObject<{
-    currPassword: z.ZodString;
     password: z.ZodString;
     cPassword: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     password: string;
     cPassword: string;
-    currPassword: string;
 }, {
     password: string;
     cPassword: string;
-    currPassword: string;
 }>;
 export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>;
