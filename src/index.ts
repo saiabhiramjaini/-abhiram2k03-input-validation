@@ -23,7 +23,7 @@ export const forgotPasswordSchema = z.object({
 })
 
 // type infer for signin
-export type forgotPasswordInput = z.infer<typeof forgotPasswordSchema>
+export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>
 
 export const resetPasswordSchema = z.object({
     currPassword: z.string().min(8),
@@ -32,4 +32,4 @@ export const resetPasswordSchema = z.object({
 })
 
 // type infer for signin
-export type resetPasswordInput = z.infer<typeof resetPasswordSchema>
+export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>

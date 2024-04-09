@@ -25,15 +25,21 @@ const { signupSchema, SignupInput } = require('@abhiram2k03/input-validation');
 Then, you can use the schema to validate the input data:
 
 ```typescript
-const validatedData = signupSchema.safeParse(inputData);
 
-if (!validatedData.success) {
-  // Handle validation errors
-  console.error(validatedData.error);
-} else {
-  // Use the validated data
-  const validData: SignupInput = validatedData.data;
-  // ...
+try{
+    const {username, email, password, cPassword} = signupSchema.parse(req.body);
+
+    // handle the data here as required
+}
+catch (error: any) {
+// If validation fails, return error message
+if (error.errors && error.errors[0].message) {
+  const message = error.errors[0].message;
+  return res.json({ msg: message });
+}
+// For any other errors, print "Internal Server Error"
+console.error(error); // Log the error for debugging purposes
+return res.json({ msg: "Internal Server Error" });
 }
 ```
 
@@ -41,11 +47,38 @@ You can use the types in the frontend as follows:
 
 ```javascript
 const [signupData, setSignupData] = useState<SignupInput>({
-    username: '',
-    email: '',
-    password: '',
-    cPassword: '',
-  });
+  username: '',
+  email: '',
+  password: '',
+  cPassword: '',
+});
+
+const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post('enter_address_here', { 
+      username: signupData.username,
+      email: signupData.email,
+      password: signupData.password,
+      cPassword: signupData.cPassword
+     });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+
+<input type="text"  
+  onChange={(e) => {
+    setSignupData({
+      ...signupData,
+      username: e.target.value
+    })
+  }}
+/>
+
+// similarly, all other inputs are validated 
+
 ```
 
 ## Schemas
@@ -74,8 +107,8 @@ The package also provides type inference for each schema, allowing you to easily
 
 - `SignupInput`
 - `SigninInput`
-- `forgotPasswordInput`
-- `resetPasswordInput`
+- `ForgotPasswordInput`
+- `ResetPasswordInput`
 
 ## Contributing
 
