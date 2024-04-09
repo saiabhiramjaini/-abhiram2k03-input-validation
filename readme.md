@@ -27,19 +27,20 @@ Then, you can use the schema to validate the input data:
 ```typescript
 
 try{
-    const {username, email, password, cPassword} = signupSchema.parse(req.body);
+  const {username, email, password, cPassword} = signupSchema.parse(req.body);
 
-    // handle the data here as required
+  // handle the data here as required
+  
 }
 catch (error: any) {
-// If validation fails, return error message
-if (error.errors && error.errors[0].message) {
-  const message = error.errors[0].message;
-  return res.json({ msg: message });
-}
-// For any other errors, print "Internal Server Error"
-console.error(error); // Log the error for debugging purposes
-return res.json({ msg: "Internal Server Error" });
+  // If validation fails, return error message
+  if (error.errors && error.errors[0].message) {
+    const message = error.errors[0].message;
+    return res.json({ msg: message });
+  }
+  // For any other errors, print "Internal Server Error"
+  console.error(error); // Log the error for debugging purposes
+  return res.json({ msg: "Internal Server Error" });
 }
 ```
 
