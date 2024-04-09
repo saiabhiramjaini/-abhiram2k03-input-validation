@@ -100,7 +100,7 @@ This schema validates the forgot password input data, ensuring that `email` is a
 
 ### `resetPasswordSchema`
 
-This schema validates the reset password input data, ensuring that `currPassword` and `password` is a string with a minimum length of 8 characters, and `cPassword` (confirmation password) is a string with a minimum length of 8 characters.
+This schema validates the reset password input data, ensuring that `password` is a string with a minimum length of 8 characters, and `cPassword` (confirmation password) is a string with a minimum length of 8 characters.
 
 ## Type Inference
 
