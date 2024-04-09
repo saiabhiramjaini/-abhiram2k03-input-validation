@@ -34,7 +34,7 @@ export declare const forgotPasswordSchema: z.ZodObject<{
 }, {
     email: string;
 }>;
-export type forgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
+export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 export declare const resetPasswordSchema: z.ZodObject<{
     currPassword: z.ZodString;
     password: z.ZodString;
@@ -48,4 +48,4 @@ export declare const resetPasswordSchema: z.ZodObject<{
     cPassword: string;
     currPassword: string;
 }>;
-export type resetPasswordInput = z.infer<typeof resetPasswordSchema>;
+export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>;
